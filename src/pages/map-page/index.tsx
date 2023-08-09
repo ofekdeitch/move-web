@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Map, { ViewState, ViewStateChangeEvent, } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { useWindowSize } from '../../common/hooks/useWindowSize';
 import axios from 'axios';
 import { COLORS } from './Slot';
 import { Length } from '../../common/hooks/useWindowSize/geo';
 import { HeatmapLayer } from './HeatmapLayer';
 import { config } from '../../common/config';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const SLOT_SIZE = Length.meters(20);
 
