@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const Slot: React.FC<Props> = ({ point, zoom }: Props) => {
-  const size = Math.max(1, zoom);
+  const size = Math.max(4, Math.pow((zoom / 8), 3));
 
   return (
     <div style={{
@@ -15,12 +15,14 @@ export const Slot: React.FC<Props> = ({ point, zoom }: Props) => {
       width: `${size}px`,
       background: getColor(point.value),
       borderRadius: '50px',
-      opacity: 0.9
+      opacity: 0.9,
+      zIndex: point.value + 1,
+      boxShadow: "0 2px 5px 1px rgba(0,0,0,0.2)"
     }} />
   );
 }
 
-const COLORS = {
+export const COLORS = {
   RED: '#ff0061',
   ORANGE: '#ffb100',
   YELLOW: '#e3ff00',
