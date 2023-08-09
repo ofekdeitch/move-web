@@ -4,6 +4,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useWindowSize } from '../../common/hooks/useWindowSize';
 import axios from 'axios';
 import { Slot } from './Slot';
+import { GeoLocation, Length } from '../../common/hooks/useWindowSize/geo';
+
+const SLOT_SIZE = Length.meters(20);
 
 interface Props { }
 
@@ -38,15 +41,23 @@ export const MapPage: React.FC<Props> = (props: Props) => {
         mapStyle="mapbox://styles/mapbox/streets-v12"
         onMove={(evt: ViewStateChangeEvent) => setViewport(evt.viewState)}
       >
-        {points.map((point) => (
+        {points.map((point) => {
+          const offset = Length.meters(SLOT_SIZE.toMeters() / 2);
+
+          const location = new GeoLocation({latitude: point.location.latitude, longitude: point.location.longitude})
+          .moveNorth(offset)
+          .moveEast(offset);
+
+
+         return  (
           <Marker
             key={getPointKey(point)}
-            latitude={point.location.latitude}
-            longitude={point.location.longitude}
+            latitude={location.latitude}
+            longitude={location.longitude}
           >
-            <Slot point={point}/>
+            <Slot point={point} zoom={viewport.zoom ?? 0}/>
           </Marker>
-        ))}
+        )})}
       </Map>
     </div>
   );

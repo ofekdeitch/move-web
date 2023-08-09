@@ -3,18 +3,19 @@ import { Point } from '.';
 
 interface Props {
   point: Point;
+  zoom: number
 }
 
-export const Slot: React.FC<Props> = ({ point }: Props) => {
+export const Slot: React.FC<Props> = ({ point, zoom }: Props) => {
+  const size = Math.max(1, zoom);
+
   return (
     <div style={{
-      height: '20px',
-      width: '20px',
+      height: `${size}px`,
+      width: `${size}px`,
       background: getColor(point.value),
       borderRadius: '50px',
-      padding: '2px',
-      textAlign: 'center',
-      opacity: 0.6
+      opacity: 0.9
     }} />
   );
 }
