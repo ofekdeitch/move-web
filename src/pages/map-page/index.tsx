@@ -40,7 +40,7 @@ export const MapPage: React.FC<Props> = (props: Props) => {
         {...viewport}
         style={{ width, height }}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/mapbox/streets-v12"
+        mapStyle="mapbox://styles/mapbox/light-v11"
         onMove={(evt: ViewStateChangeEvent) => setViewport(evt.viewState)}
       >
         <HeatmapLayer key="red" color={COLORS.RED} points={points} range={{ min: 4, max: 10 }} slotSize={SLOT_SIZE} />
