@@ -4,7 +4,7 @@ import { Point } from '.';
 import { Layer, Source } from 'react-map-gl';
 
 interface Props {
-  range: { min: number, max: number };
+  range: { min?: number, max?: number };
   points: Point[];
   slotSize: Length;
   color: string;
@@ -43,8 +43,11 @@ export const HeatmapLayer: React.FC<Props> = ({key,  slotSize, points, range, co
 type MapPoint = [number, number];
 type HeatMapSlot = [MapPoint, MapPoint, MapPoint, MapPoint];
 
-function filterPoints(points: Point[], range: { min: number, max: number }, slotSize: Length): HeatMapSlot[] {
-  const filteredPoints = points.filter((p) => p.value >= range.min && p.value <= range.max);
+function filterPoints(points: Point[], range: { min?: number, max?: number }, slotSize: Length): HeatMapSlot[] {
+  const minPredicate = (value: number) => !!range.min ? value >= range.min : true;
+  const maxPredicate = (value: number) => !!range.max ? value <= range.max : true;
+
+  const filteredPoints = points.filter((p) => minPredicate(p.value) && maxPredicate(p.value));
   return filteredPoints.map((p) => pointToSlot(p, slotSize));
 }
 
