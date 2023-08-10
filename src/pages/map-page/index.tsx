@@ -43,9 +43,9 @@ export const MapPage: React.FC<Props> = (props: Props) => {
         mapStyle="mapbox://styles/mapbox/light-v11"
         onMove={(evt: ViewStateChangeEvent) => setViewport(evt.viewState)}
       >
-        <HeatmapLayer key="red" color={COLORS.RED} points={points} range={{ min: 4, max: 10 }} slotSize={SLOT_SIZE} />
+        <HeatmapLayer key="red" color={COLORS.RED} points={points} range={{ min: 4 }} slotSize={SLOT_SIZE} />
         <HeatmapLayer key="yellow" color={COLORS.YELLOW} points={points} range={{ min: 3, max: 3 }} slotSize={SLOT_SIZE} />
-        <HeatmapLayer key="green" color={COLORS.GREEN} points={points} range={{ min: 0, max: 2 }} slotSize={SLOT_SIZE} />
+        <HeatmapLayer key="green" color={COLORS.GREEN} points={points} range={{  max: 2 }} slotSize={SLOT_SIZE} />
       </Map>
     </div>
   );
