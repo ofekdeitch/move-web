@@ -22,13 +22,14 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
           <StepLine />
           <Number>1.</Number>
           <StepText>
-            האפליקציה של <strong>דו-גלגל</strong> מאפשרת לרוכבי אופניים וקורקינט לדווח בזמן אמת על השבילים שבהם הם רוכבים.
+            מורידים את האפליקציה ומדליקים אותה לפני כל רכיבה.
+            האפליקציה תאפשר לנו לדווח בזמן אמת על המסלולים שבהם עברתם.
           </StepText>
         </Step>
         <Step>
           <StepLine />
           <Number>2.</Number>
-          <StepText> את המידע הזה אנחנו אוספים ומנגישים לכם באמצעות מפת-חום. שבילים שבשימוש תדיר צבועים באדום, ואילו שבילים בשימוש פחות תדיר צבועים בירוק.</StepText>
+          <StepText> את המידע הזה אנחנו אוספים מקבוצה גדולה של רוכבים בעיר ומנגישים אותו לכולם באמצעות מפת-חום. שבילים שנמצאים בשימוש תדיר צבועים באדום, ואילו שבילים בשימוש פחות תדיר צבועים בירוק.</StepText>
         </Step>
         <Step >
           <Number>3.</Number>
@@ -41,15 +42,17 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
 
 
 const Title = styled.h1`
-  font-size: 56px;
+  font-size: 80px;
   font-weight: 600;
   color: #fff;
   margin: 0;
   text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
 `
 
 const Subtitle = styled.h2`
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 200;
   color: #fff;
   text-align: center; 
@@ -60,11 +63,10 @@ const Gap: React.FC<{ height: number }> = styled.div`
 `
 
 const SectionTitle = styled.h2`
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
   text-align: center;
 `
-
 
 const Step = styled.div`
   display: flex;
@@ -75,7 +77,7 @@ const Step = styled.div`
 
 const StepText = styled.p`
   font-weight: 200;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.5;
   color: #525252;
   padding-top: 12px;
