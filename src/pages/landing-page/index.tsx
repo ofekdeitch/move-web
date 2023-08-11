@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { Section } from './Section';
 import icon from './icon.png';
+import { Link } from 'react-router-dom';
 
 interface Props { }
 
@@ -35,7 +36,12 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
           <Number>3.</Number>
           <StepText>לבסוף, המידע שאספנו ביחד מוצג למתכנני העיר, ואיתו אנחנו קובעים היכן יש לבנות שבילים חדשים, והיכן כדאי לשפר את השבילים הקיימים.</StepText>
         </Step>
-      </Section >
+      </Section>
+
+      <div style={{ position: 'relative', height: '80vh', background: `url('https://github.com/ofekdeitch/move-web/assets/121801386/e0bc7949-04c4-42a3-be93-2f05a939676f')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+        <Button to={'/map'}>לצפיה במפה</Button>
+        {/* <img src={map} alt='' style={{width: '100vw'}} /> */}
+      </div>
     </>
   );
 }
@@ -110,4 +116,20 @@ const StepLine = styled.div`
   right: 10px;
   background: #b5dbff;
   width: 3px;
+`
+
+
+const Button = styled(Link)`
+  padding:  12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+  background: #168eff;
+  text-decoration: none;
+  font-size: 18px;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
