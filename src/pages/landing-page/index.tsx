@@ -39,9 +39,9 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
         </Step>
       </Section>
 
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', height: '80vh', background: `url('${map}')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <Button to={'/map'}>לצפיה במפה</Button>
-        <img src={map} alt='' style={{width: '100vw'}} />
+        {/* <img src={map} alt='' style={{width: '100vw'}} /> */}
       </div>
     </>
   );
