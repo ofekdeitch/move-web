@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import { Section } from './Section';
 import icon from './icon.png';
-import map from './map.png';
 import { Link } from 'react-router-dom';
 
 interface Props { }
@@ -39,7 +38,7 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
         </Step>
       </Section>
 
-      <div style={{ position: 'relative', height: '80vh', background: `url('${map}')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+      <div style={{ position: 'relative', height: '80vh', background: `url('https://github.com/ofekdeitch/move-web/assets/121801386/e0bc7949-04c4-42a3-be93-2f05a939676f')`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <Button to={'/map'}>לצפיה במפה</Button>
         {/* <img src={map} alt='' style={{width: '100vw'}} /> */}
       </div>
