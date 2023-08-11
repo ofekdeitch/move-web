@@ -1,9 +1,14 @@
 import React from 'react';
 import { MapPage } from './pages/map-page';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <MapPage />
+    <div>
+      <Routes>
+        <Route path="" element={<MapPage />} />
+      </Routes>
+    </div>
   );
 }
 
