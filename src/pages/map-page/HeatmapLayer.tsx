@@ -8,10 +8,10 @@ interface Props {
   points: Point[];
   slotSize: Length;
   color: string;
-  key: string;
+  id: string;
 }
 
-export const HeatmapLayer: React.FC<Props> = ({key,  slotSize, points, range, color }: Props) => {
+export const HeatmapLayer: React.FC<Props> = ({ id, slotSize, points, range, color }: Props) => {
   const slots: HeatMapSlot[] = filterPoints(points, range, slotSize);
 
   return (
@@ -30,7 +30,7 @@ export const HeatmapLayer: React.FC<Props> = ({key,  slotSize, points, range, co
         }))
     }}>
       <Layer
-        id={key}
+        id={id}
         type='fill'
         paint={{
           'fill-color': color,
